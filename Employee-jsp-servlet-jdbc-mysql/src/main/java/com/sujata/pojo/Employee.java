@@ -1,6 +1,6 @@
 package com.sujata.pojo;
 
-import java.util.Date;
+import java.sql.Date;
 
 public class Employee {
 	private int employee_Id;

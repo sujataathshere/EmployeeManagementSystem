@@ -9,5 +9,6 @@
     4. UTIL
 3. MySQL Database Setup(jdbc.properties file)
 4. Create Employee.java
-5. Create EmployeeDAO.java
+5. Create EmployeeDao.java
+6. Create EmployeeListBean.java
     
