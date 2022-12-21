@@ -8,22 +8,39 @@ import java.util.ArrayList;
 import java.util.List;
 
 import com.sujata.pojo.Employee;
+import com.sujata.util.DBUtil;
 
 public class EmployeeDao implements AutoCloseable {
 	private Connection connection;
 
+	public EmployeeDao() throws Exception {
+		this.connection = DBUtil.getConnection();
+	}
+
+//	SELECT
 	public List<Employee> getEmployees() throws Exception {
-		String sql = "SELECT id, name, address, gender, salary, birth from employees";
+		System.out.println("EmployeeDao : getEmployees()");
+		String sql = "SELECT EmployeeId, Name, Address, Gender, Salary, BirthDate from Employee";
 		List<Employee> employees = new ArrayList<Employee>();
 		try (PreparedStatement selectStatement = connection.prepareStatement(sql)) {
 			try (ResultSet rs = selectStatement.executeQuery()) {
 				while (rs.next()) {
-					employees.add(new Employee(rs.getInt("id"), rs.getString("name"), rs.getString("address"),
-							rs.getInt("gender"), rs.getDouble("salary"), rs.getDate("birth")));
+					employees.add(new Employee(rs.getInt("EmployeeId"), rs.getString("Name"), rs.getString("Address"),
+							rs.getInt("Gender"), rs.getDouble("Salary"), rs.getDate("BirthDate")));
 				}
 			}
 		}
 		return employees;
+	}
+
+//	DELETE
+	public int delete(int id) throws Exception {
+		System.out.println("EmployeeDao : delete()");
+		String sql = "DELETE FROM Employee WHERE EmployeeId = ?";
+		try (PreparedStatement updateStatement = connection.prepareStatement(sql)) {
+			updateStatement.setInt(1, id);
+			return updateStatement.executeUpdate();
+		}
 	}
 
 	@Override

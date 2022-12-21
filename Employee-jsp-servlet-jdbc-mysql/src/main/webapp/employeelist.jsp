@@ -7,12 +7,12 @@
 <head>
 <meta charset="ISO-8859-1">
 <title>Employee List</title>
-
 </head>
 <body>
 	<jsp:useBean id="eb" class="com.sujata.beans.EmployeeListBean" />
 	${eb.fetchEmployees()}
-	<table border="1">
+
+	<table border="1" cellpadding = "5" cellspacing = "5">
 		<thead>
 			<tr>
 				<td>Id</td>
@@ -21,6 +21,7 @@
 				<td>Gender</td>
 				<td>Salary</td>
 				<td>Birth Date</td>
+				<td>Action</td>
 			</tr>
 		</thead>
 		<tbody>
@@ -32,10 +33,16 @@
 					<td>${e.gender}</td>
 					<td><fmt:formatNumber value="${e.salary}" type="number"
 							minFractionDigits="2" maxFractionDigits="2" /></td>
-					<td><a href="addedit.jsp?id=${e.employeeId}&action=del">Delete</a></td>
+					<td>${e.birthDate}</td>
+					<td><a href="action.jsp?id=${e.employeeId}&action=del">Delete</a></td>
 				</tr>
 			</c:forEach>
 		</tbody>
 	</table>
+	<script>
+		function action() {
+			alert("Are you sure want to delete employee?");
+		}
+	</script>
 </body>
 </html>

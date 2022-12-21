@@ -20,6 +20,6 @@ public class DBUtil {
 		}
 	}
 	public static Connection getConnection() throws Exception {
-		return DriverManager.getConnection(prop.getProperty("URL"), prop.getProperty("USER)"), prop.getProperty("PASSWORD"));
+		return DriverManager.getConnection(prop.getProperty("URL"), prop.getProperty("USER"), prop.getProperty("PASSWORD"));
 	}
 }

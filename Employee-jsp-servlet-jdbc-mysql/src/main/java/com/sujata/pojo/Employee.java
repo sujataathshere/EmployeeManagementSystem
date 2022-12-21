@@ -1,9 +1,9 @@
 package com.sujata.pojo;
 
-import java.sql.Date;
+import java.util.Date;
 
 public class Employee {
-	private int employee_Id;
+	private int employeeId;
 	private String name;
 	private String address;
 	private int gender;
@@ -11,7 +11,7 @@ public class Employee {
 	private Date birthDate;
 
 	public Employee(int employee_Id, String name, String address, int gender, double salary, Date birthDate) {
-		this.employee_Id = employee_Id;
+		this.employeeId = employee_Id;
 		this.name = name;
 		this.address = address;
 		this.gender = gender;
@@ -22,12 +22,12 @@ public class Employee {
 	public Employee() {
 	}
 
-	public int getEmployee_Id() {
-		return employee_Id;
+	public int getEmployeeId() {
+		return employeeId;
 	}
 
 	public void setEmployee_Id(int employee_Id) {
-		this.employee_Id = employee_Id;
+		this.employeeId = employee_Id;
 	}
 
 	public String getName() {
@@ -72,7 +72,7 @@ public class Employee {
 
 	@Override
 	public String toString() {
-		return "Employee [employee_Id=" + employee_Id + ", name=" + name + ", address=" + address + ", gender=" + gender
+		return "Employee [employee_Id=" + employeeId + ", name=" + name + ", address=" + address + ", gender=" + gender
 				+ ", salary=" + salary + ", birthDate=" + birthDate + "]";
 	}
 
